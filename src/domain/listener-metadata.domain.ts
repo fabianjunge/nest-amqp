@@ -5,7 +5,7 @@ import { ListenOptions } from '../interface';
 /**
  * Metadata added by the `@Listener` decorator
  */
-export class ListenerMetadata<T> {
+export class ListenerMetadata<T, C extends string = string> {
   /**
    * The method that should be executed once the message is transformed (and validated if needed)
    */
@@ -35,4 +35,9 @@ export class ListenerMetadata<T> {
    * The Class the method belongs to
    */
   public target: object;
+
+  /**
+   * Connection the listener should be using
+   */
+  public connection: C;
 }
